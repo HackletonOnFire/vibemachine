@@ -1,0 +1,52 @@
+{
+  "name": "casgo-monorepo",
+  "version": "1.0.0",
+  "description": "Root of the casgo monorepo, containing frontend, backend, and ML services",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf node_modules casgo/node_modules casgo/backend/node_modules casgo/ml-service/venv",
+    "install:all": "npm install && npm run install:frontend && npm run install:backend",
+    "install:frontend": "cd casgo && npm install --legacy-peer-deps",
+    "install:backend": "cd casgo/backend && npm install",
+    "install:ml": "cd casgo/ml-service && python -m venv venv && source venv/bin/activate && pip install -r requirements.txt",
+    "dev:frontend": "cd casgo && npm run dev",
+    "dev:backend": "cd casgo/backend && npm run dev",
+    "dev:ml": "cd casgo/ml-service && python main.py",
+    "dev:all": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\" \"npm run dev:ml\"",
+    "build:frontend": "cd casgo && npm run build",
+    "build:backend": "cd casgo/backend && npm run build",
+    "build:all": "npm run build:frontend && npm run build:backend",
+    "test:frontend": "cd casgo && npm test",
+    "test:backend": "cd casgo/backend && npm test",
+    "test:ml": "cd casgo/ml-service && pytest",
+    "test:all": "npm run test:frontend && npm run test:backend && npm run test:ml",
+    "lint:frontend": "cd casgo && npm run lint",
+    "lint:backend": "cd casgo/backend && npm run lint",
+    "lint:all": "npm run lint:frontend && npm run lint:backend",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md,yml}\" --ignore-path ./.prettierignore"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackletonOnFire/VIBESTACK.git"
+  },
+  "keywords": [
+    "monorepo",
+    "sustainability",
+    "ai"
+  ],
+  "author": "VibeStack",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HackletonOnFire/VIBESTACK/issues"
+  },
+  "homepage": "https://github.com/HackletonOnFire/VIBESTACK#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.55.0",
+    "eslint-plugin-prettier": "^5.1.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.1.0"
+  }
+}

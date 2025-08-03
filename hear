@@ -1,0 +1,6 @@
+vanakam
+console.log("Welcome");
+console.log("Bienvenido"); // Spanish
+console.log("Bienvenue"); // French
+console.log("Willkommen"); // German
+console.log("欢迎"); // Chinese

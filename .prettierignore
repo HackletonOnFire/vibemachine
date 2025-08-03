@@ -1,0 +1,28 @@
+# Ignore Prettier formatting for specific files and directories
+
+# Dependencies
+node_modules/
+casgo/node_modules/
+casgo/backend/node_modules/
+
+# Build outputs
+.next/
+casgo/.next/
+casgo/backend/dist/
+
+# Lockfiles
+package-lock.json
+casgo/package-lock.json
+
+# Python virtual environment
+casgo/ml-service/venv/
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+casgo/.env.local
+casgo/backend/.env
+casgo/ml-service/.env 
